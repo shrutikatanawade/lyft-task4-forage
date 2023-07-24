@@ -4,6 +4,19 @@ from engine.model.glissade import Glissade
 from engine.model.palindrome import Palindrome
 from engine.model.rorschach import Rorschach
 from engine.model.thovex import Thovex
+from engine.model.car import CarFactory, Car, Tire
+
+class TestCar(unittest.TestCase):
+
+    def test_octoprime_tire_service(self):
+        # Create a car with Octoprime tires
+        car = CarFactory.create_car(tire_type="Octoprime")
+        # Assume the tire wear array has a sum greater than or equal to 3
+        tire_wear_array = [0.8, 0.9, 0.7, 0.6]
+        # Verify that the Octoprime tires need service
+        self.assertTrue(car.tires_need_service(tire_wear_array))
+
+
 
 class TestCalliope(unittest.TestCase):
     def test_needs_service(self):
